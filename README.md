@@ -45,7 +45,7 @@ basic functionality and integrity checks. Key features include:
 
 ## Preview
 
-![Preview](https://i.imgur.com/Hkime76.mp4)
+![Preview](./Screencast from 2024-12-11 13-58-40)
 
 ## Detection
 
