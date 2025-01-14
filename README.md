@@ -43,12 +43,16 @@ basic functionality and integrity checks. Key features include:
   reusable in other projects. However, some modules may have dependencies, such as the `RegistryGuard` depending on the
   `RegistryHelper`.
 
-## EDR
+## Preview
+
+![Preview](https://i.imgur.com/Hkime76.mp4)
+
+## Detection
 
 some public yara rules detected "anti sandbox" and "anti analysis" based on strings
 (i started adding str encryptions but didn't test it yet...)
 
-you can use [weak Alcatraz](https://github.com/weak1337/Alcatraz) opensource obfuscation for example
+you can use [weak Alcatraz](https://github.com/weak1337/Alcatraz) for example
 
 [VirusTotal](https://www.virustotal.com/gui/file/03fe91637ce92c3df60e15536c251de2536e4399c33ad3d4cec30d049c350e53/detection)
 
