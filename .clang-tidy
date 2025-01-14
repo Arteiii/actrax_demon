@@ -1,0 +1,74 @@
+Checks: >
+  -*,
+  
+  # General modern C++ best practices
+  cppcoreguidelines-*,
+  modernize-*,
+  readability-*,
+  
+  # Security and safety checks
+  security-*,
+  bugprone-*,
+  clang-analyzer-*,
+
+  # Performance improvements
+  performance-*,
+  
+  readability-identifier-naming,
+  
+  # Recommended Google and LLVM guidelines
+  google-*,
+  llvm-*
+
+CheckOptions:
+
+  # Enforce Microsoft naming conventions for better readability and maintenance
+  # Class names should follow CamelCase (PascalCase)
+  - key: readability-identifier-naming.ClassCase
+    value: CamelCase
+
+  # Method names should follow CamelCase (PascalCase)
+  - key: readability-identifier-naming.FunctionCase
+    value: CamelCase
+
+  # Variable names should follow camelCase
+  - key: readability-identifier-naming.VariableCase
+    value: camelCase
+
+  # Member variable names should follow camelCase
+  - key: readability-identifier-naming.MemberCase
+    value: camelCase
+
+  # Global variable names should follow g_camelCase
+  - key: readability-identifier-naming.GlobalVariableCase
+    value: g_camelCase
+
+  # Static variable names should follow s_camelCase
+  - key: readability-identifier-naming.StaticVariableCase
+    value: s_camelCase
+
+  # Global constant names should follow PascalCase
+  - key: readability-identifier-naming.GlobalConstantCase
+    value: CamelCase
+
+  # Adjust specific modernize checks
+  - key: modernize-use-trailing-return-type.IgnoreMacros
+    value: 'true'
+  - key: modernize-avoid-bind
+    value: 'false'
+
+  # Customize performance checks
+  - key: performance-unnecessary-copy-initialization.Enabled
+    value: 'true'
+  - key: performance-move-const-arg.Enabled
+    value: 'true'
+  - key: performance-noexcept-move-constructor.Enabled
+    value: 'true'
+
+  # Enforce usage of nullptr instead of NULL
+  - key: modernize-use-nullptr
+    value: 'true'
+
+WarningsAsErrors: 'true'  # Treat warnings as errors for strict code quality
+HeaderFilterRegex: '.*'   # Apply checks to all headers
+FormatStyle: mozilla      # Use Mozilla's code style guidelines
