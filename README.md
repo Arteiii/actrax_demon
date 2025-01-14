@@ -45,7 +45,7 @@ basic functionality and integrity checks. Key features include:
 
 ## Preview
 
-![Preview](./Screencast from 2024-12-11 13-58-40)
+![Screencast](https://github.com/Arteiii/actrax_demon/blob/main/Screencast%20from%202024-12-11%2013-58-40.gif)
 
 ## Detection
 
