@@ -1,6 +1,6 @@
 #pragma once
 
-#include "pch.h"
+#include "../integrity/stringEncryptionUtils.hpp"
 
 namespace Server {
 class SessionToken

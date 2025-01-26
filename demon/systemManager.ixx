@@ -1,13 +1,12 @@
-export module systemManager;
-
 #include "../integrity/stringEncryptionUtils.hpp"
+#include <../logger/logger.hpp>
 
 #include <filesystem>
-#include <logger.hpp>
-
 #include <fstream>
 #include <optional>
 #include <string>
+
+export module systemManager;
 
 export namespace System {
 

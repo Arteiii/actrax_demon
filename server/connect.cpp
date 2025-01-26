@@ -1,7 +1,6 @@
 #include "pch.h"
 
 #include "helper.hpp"
-
 #include "server.hpp"
 
 namespace Server {
