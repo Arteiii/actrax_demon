@@ -1,7 +1,8 @@
 #include <stdexcept>
 #include <string>
 
-#include <logger.hpp>
+#include <../logger/logger.hpp>
+#include <../server/server.hpp>
 
 export module utility;
 

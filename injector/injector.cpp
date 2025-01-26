@@ -151,3 +151,4 @@ LoadLibraryRemoteThread::InjectDll(const DWORD processId,
     return false;
   }
 }
+} // namespace Injector

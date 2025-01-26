@@ -3,12 +3,13 @@
 import utility;
 import systemManager;
 
-#include <AntiAnalysis.hpp>
+#include <../integrity/AntiAnalysis.hpp>
 
-#include <Server.hpp>
-#include <TaskScheduler.hpp>
+#include <../server/server.hpp>
 
-#include <core/Injector/include/loadLibrary.hpp>
+#include <../injector/injector.hpp>
+#include <../taskScheduler/taskScheduler.hpp>
+
 #include <fstream>
 #include <optional>
 #include <thread>

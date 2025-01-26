@@ -3,6 +3,8 @@
 #include "Logger.hpp"
 #include "registryGuard.hpp"
 
+#include <array>
+
 namespace Registry {
 RegistryGuard::RegistryGuard(const int checkIntervalMs, callback clb)
   : checkIntervalMs_(checkIntervalMs)

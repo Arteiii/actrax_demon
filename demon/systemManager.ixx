@@ -1,9 +1,11 @@
 export module systemManager;
 
+#include "../integrity/stringEncryptionUtils.hpp"
+
+#include <filesystem>
 #include <logger.hpp>
 
-#include "stringEncryptionUtils.hpp"
-
+#include <fstream>
 #include <optional>
 #include <string>
 

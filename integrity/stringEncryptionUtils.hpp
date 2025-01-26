@@ -1,5 +1,8 @@
 #pragma once
 
+#include <array>
+#include <string>
+
 #ifndef XOR_KEY
 #define XOR_KEY 0x5A
 #endif

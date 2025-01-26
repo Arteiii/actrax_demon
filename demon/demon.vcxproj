@@ -106,7 +106,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <LanguageStandard_C>stdclatest</LanguageStandard_C>
-      <AdditionalIncludeDirectories>../integrity;../injector;../logger;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -123,7 +123,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <LanguageStandard_C>stdclatest</LanguageStandard_C>
-      <AdditionalIncludeDirectories>../integrity;../injector;../logger;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -146,6 +146,15 @@
     </ProjectReference>
     <ProjectReference Include="..\logger\logger.vcxproj">
       <Project>{d196b9db-dfc4-453d-a21f-994e9f35dff1}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\registry\registry.vcxproj">
+      <Project>{866b9186-a195-4600-857a-d68aae820f71}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\server\server.vcxproj">
+      <Project>{dc8a8f3d-b4a5-4c2e-9845-1fe18b9d215e}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\TaskScheduler\TaskScheduler.vcxproj">
+      <Project>{61f44e88-8857-46b4-8fe6-78e9f561932d}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
