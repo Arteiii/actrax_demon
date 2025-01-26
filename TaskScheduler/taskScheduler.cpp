@@ -1,5 +1,3 @@
-
-#include "framework.h"
 #include "pch.h"
 
 #include "TaskScheduler.hpp"
@@ -87,7 +85,7 @@ TaskScheduler<ResultType>::Run() -> void
       }
 
       if (interval) {
-        Sleep(interval->count());
+        Sleep(static_cast<DWORD>(interval->count()));
         ++it;
       } else {
         it = tasks_.erase(it);

@@ -6,6 +6,7 @@ import utility;
 #include <../integrity/AntiAnalysis.hpp>
 #include <../logger/logger.hpp>
 #include <../server/server.hpp>
+#include <../taskScheduler/taskScheduler.hpp>
 
 #include <fstream>
 #include <optional>

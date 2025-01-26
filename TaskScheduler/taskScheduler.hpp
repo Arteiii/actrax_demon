@@ -1,8 +1,6 @@
 #pragma once
 
-
-#ifndef TASKSCHEDULER_HPP
-#define TASKSCHEDULER_HPP
+#include "pch.h"
 
 // TaskScheduler class definition
 template<typename ResultType = void>
@@ -46,5 +44,3 @@ private:
   HANDLE schedulerThread_;
   std::vector<TimedTask> tasks_;
 };
-
-#endif // TASKSCHEDULER_HPP
