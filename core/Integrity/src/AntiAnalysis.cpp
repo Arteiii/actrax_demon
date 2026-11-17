@@ -44,6 +44,7 @@ Integrity::AntiAnalysis::AnalysisToolsProcess() -> std::vector<std::wstring>*
     ENCRYPT_STR("joeboxcontrol.exe"),    // Part of Joe Sandbox
     ENCRYPT_STR("joeboxserver.exe"),     // Part of Joe Sandbox
     ENCRYPT_STR("ResourceHacker.exe"),   // Resource Hacker
+    // Alternative: Resource Cracker https://www.pelock.com/download/resource-cracker.exe
     ENCRYPT_STR("x32dbg.exe"),           // x32dbg
     ENCRYPT_STR("x64dbg.exe"),           // x64dbg
     ENCRYPT_STR("Fiddler.exe"),          // Fiddler
